@@ -12,14 +12,14 @@
     <header>
         <a href="#" class="logo"><img src="./ressources/logo.png" alt="logo"></a>
         <ul class="navigation">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">TV Shows</a></li>
-            <li><a href="#">Movies</a></li>
-            <li><a href="#">Latest</a></li>
-            <li><a href="#">My list</a></li>
+            <li><a href="#">Acceuil</a></li>
+            <li><a href="#">Séries</a></li>
+            <li><a href="#">Film</a></li>
+            <li><a href="#">Nouveautés</a></li>
+            <li><a href="#">Ma liste</a></li>
         </ul>
         <div class="search">
-            <input type="text" placeholder="Search">
+            <input type="text" placeholder="Recherche...">
             <i class="fa fa-search" aria-hidden="true"></i>
         </div>
     </header>
@@ -37,14 +37,24 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eum saepe non assumenda tenetur aliquid nobis cum ad qui ea odio exercitationem quam optio itaque molestias quasi, quos expedita explicabo. Nostrum eum saepe non assumenda tenetur aliquid nobis cum ad qui ea odio exercitationem quam optio itaque molestias quasi, quos expedita explicabo.
             </p>
             <div class="buttons">
-                <a href="#"><i class="fa fa-play" aria-hidden="true"></i>Play</a>
-                <a href="#"><i class="fa fa-plus" aria-hidden="true"></i>My list</a>
+                <a href="#"><i class="fa fa-play" aria-hidden="true"></i>Reprendre</a>
+                <a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Ma liste</a>
             </div>
         </div>
-        <a class="play"><img src="./ressources/play.png">Watch Trailer</a>
+        <a class="play" onclick="toggleVideo();"><img src="./ressources/play.png">Regarder la bande-annonce</a>
     </div>
     <div class="trailer">
-        <video src="./ressources/mulan-bande-annonce-vf-disney.mp4" controls="true" autoplay="true"></video>
+        <video src="./ressources/mulan-bande-annonce-vf-disney.mp4" controls="true"></video>
+        <img src="./ressources/close.png" class="close" onclick="toggleVideo();">
     </div>
+    <script>
+        function toggleVideo() {
+            const trailer = document.querySelector('.trailer');
+            const video = document.querySelector('video');
+            trailer.classList.toggle('active');
+            video.currentTime = 0;
+            video.pause();
+        }
+    </script>
 </body>
 </html>
